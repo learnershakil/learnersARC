@@ -53,7 +53,7 @@ Learners Arc is an exclusive platform designed for elite developers, offering a 
    ```
 
 Setup Frontend:   
-    ```bash
+   ```bash
    cd learners-arc/frontend
    npm install
    npm run dev
