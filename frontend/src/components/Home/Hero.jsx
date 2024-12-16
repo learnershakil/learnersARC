@@ -49,7 +49,7 @@ const Hero = () => {
                 </Link>
                 <Link to="/connect-us">
                   <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[1.4vw] rotate-[35deg]">
-                    Connet
+                    Connect
                   </h1>
                 </Link>
                 <a href="https://woc.learnersarc.com/">
@@ -57,11 +57,11 @@ const Hero = () => {
                     WOC
                   </h1>
                 </a>
-                <a href="https://woc.learnersarc.com/">
+                <Link to="/unauthorized">
                   <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[6vw] right-[6vw] sm:bottom-[1.8vw] bottom-[2vw] rotate-[69deg]">
                     More
                   </h1>
-                </a>
+                </Link>
               </div>
             )}
           </div>
@@ -72,12 +72,19 @@ const Hero = () => {
           ></motion.div>
 
           <div className="flex sm:gap-[1vw] gap-[2vw]">
-            <Link onClick={() => openModal("login")}>
+            <Link to="/unauthorized">
               <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[4.5vw] text-center hover:border-zinc-300">
                 LogIn
               </h1>
             </Link>
-{/* 
+
+            {/* <Link onClick={() => openModal("login")}>
+              <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[4.5vw] text-center hover:border-zinc-300">
+                LogIn
+              </h1>
+            </Link> */}
+
+            {/* 
             <Link onClick={() => openModal("signup")}>
               <h1 className="text-zinc-900 hover:text-zinc-950 hover:bg-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] bg-zinc-100 rounded-full border sm:w-[4.5vw] text-center">
                 SignIn
@@ -236,7 +243,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Third Card (Animated) */}
-         <motion.div
+        <motion.div
           data-scroll
           data-scroll-speed="0.08"
           initial={{ y: 20, opacity: 0 }} // Start below and fade in
