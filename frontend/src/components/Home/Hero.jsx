@@ -236,15 +236,13 @@ const Hero = () => {
         </motion.div>
 
         {/* Third Card (Animated) */}
-        <a href="https://woc.learnersarc.com/"
-         className="w-full h-[50%] bg-[#7663FF] rounded-[2vw] overflow-hidden relative group cursor-pointer">
          <motion.div
           data-scroll
           data-scroll-speed="0.08"
           initial={{ y: 20, opacity: 0 }} // Start below and fade in
           animate={{ y: 0, opacity: 1 }} // Animate to final position with fade-in
           transition={{ duration: 0.6, ease: "easeOut" }} // Smooth, slow easing
-          className="h-full w-full"
+          className="w-full h-[50%] bg-[#7663FF] rounded-[2vw] overflow-hidden relative group cursor-pointer"
         >
           <motion.div className="absolute bg-black/10 flex flex-col justify-between top-0 left-0 w-full p-[1vw] group-hover:p-[1.5vw] transition-all duration-300">
             <div className="flex justify-between w-full">
@@ -283,7 +281,6 @@ const Hero = () => {
             className="h-full w-full object-cover"
           ></video>
         </motion.div>
-        </a>
       </div>
 
       <Modal show={showModal} onClose={closeModal}>
