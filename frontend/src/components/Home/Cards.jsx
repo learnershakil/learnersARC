@@ -20,20 +20,24 @@ const Cards = () => {
             transition={{ duration: 0.8 }}
             className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] absolute top-0 md:left-[108px] left-[40px] bg-slate-200 overflow-hidden"
           >
-             <img className="w-full h-full object-cover" src="https://i.pinimg.com/736x/56/67/93/5667936906181a6fbe0501b471e2b5bd.jpg" alt="" />
+             <img className="w-full h-full object-cover" src="/assets/images/student.jpg" alt="" />
           </motion.div>
           <motion.div
             initial={{ rotate: 0, x: -100 }}
             whileInView={{ rotate: 9, x: 0 }}
             transition={{ duration: 0.8 }}
             className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] absolute top-0 md:left-[205px] left-[80px] bg-slate-400"
-          ></motion.div>
+          >
+            <img className="w-full h-full object-cover" src="https://i.pinimg.com/736x/56/67/93/5667936906181a6fbe0501b471e2b5bd.jpg" alt="" />
+          </motion.div>
           <motion.div
             initial={{ rotate: 0, x: -150 }}
             whileInView={{ rotate: 14, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] absolute top-0 md:left-[273px] left-[108px] bg-slate-300"
-          ></motion.div>
+            className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] absolute top-0 md:left-[273px] left-[108px] bg-slate-300 overflow-hidden"
+          >
+            <img className="w-full h-full object-cover" src="/assets/images/teach.jpg" alt="" />
+          </motion.div>
         </div>
 
         <div className="flex flex-col md:gap-[30px] gap-[10px] items-start relative sm:pl-0 pl-[4vw]">
@@ -44,11 +48,11 @@ const Cards = () => {
             helping students build real-world projects and succeed in the tech
             industry.
           </h4>
-          <Link to="/">
+          <a href="https://woc.learnersarc.com/">
             <div className="flex justify-center items-center gap-[15.5px] md:px-[18px] px-[14px] py-[8px] bg-filledBg md:py-[10px] rounded-full border-primary border-[1px] w-fit text-[12px] md:text-[16px]">
               <h3 className="text-textColor">Join Now</h3>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

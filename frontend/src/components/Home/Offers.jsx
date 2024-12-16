@@ -6,23 +6,23 @@ const Offers = () => {
     <div className="w-full px-[2vw] flex flex-col gap-[2.5vw] pt-[7vw] pb-[15vw] sm:pb-[2vw]">
       <div className="w-full flex justify-between items-center">
         <div className="flex sm:gap-[1vw] gap-[2vw] items-center">
-          <Link to="/log-in">
+        <a href="https://woc.learnersarc.com/">
             <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center hover:border-zinc-300">
-              Tutors
+              Mentors
             </h1>
-          </Link>
+          </a>
 
-          <Link to="/log-in">
+          <a href="https://woc.learnersarc.com/">
             <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center hover:border-zinc-300">
               Courses
             </h1>
-          </Link>
+          </a>
 
-          <Link to="/sign-in">
+          <a href="https://woc.learnersarc.com/">
             <h1 className="text-zinc-900 hover:text-zinc-950 hover:bg-zinc-300 bg-zinc-100 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center">
               Explore
             </h1>
-          </Link>
+          </a>
         </div>
         <h1 className="sm:text-[2.5vw] text-[5vw]">What we offer</h1>
       </div>

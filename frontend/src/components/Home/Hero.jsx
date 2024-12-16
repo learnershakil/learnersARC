@@ -47,21 +47,21 @@ const Hero = () => {
                     Home
                   </h1>
                 </Link>
-                <Link to="/about">
+                <Link to="/connect-us">
                   <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[1.4vw] rotate-[35deg]">
                     About
                   </h1>
                 </Link>
-                <Link to="/courses">
+                <a href="https://woc.learnersarc.com/">
                   <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[3.5vw] right-[2.1vw] bottom-[0.5vw] rotate-[52deg]">
-                    Courses
+                    WOC
                   </h1>
-                </Link>
-                <Link to="/more">
+                </a>
+                <a href="https://woc.learnersarc.com/">
                   <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[6vw] right-[6vw] sm:bottom-[1.8vw] bottom-[2vw] rotate-[69deg]">
                     More
                   </h1>
-                </Link>
+                </a>
               </div>
             )}
           </div>
@@ -77,12 +77,12 @@ const Hero = () => {
                 LogIn
               </h1>
             </Link>
-
+{/* 
             <Link onClick={() => openModal("signup")}>
               <h1 className="text-zinc-900 hover:text-zinc-950 hover:bg-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] bg-zinc-100 rounded-full border sm:w-[4.5vw] text-center">
                 SignIn
               </h1>
-            </Link>
+            </Link> */}
           </div>
         </nav>
 
@@ -236,13 +236,15 @@ const Hero = () => {
         </motion.div>
 
         {/* Third Card (Animated) */}
-        <motion.div
+        <a href="https://woc.learnersarc.com/"
+         className="w-full h-[50%] bg-[#7663FF] rounded-[2vw] overflow-hidden relative group cursor-pointer">
+         <motion.div
           data-scroll
           data-scroll-speed="0.08"
           initial={{ y: 20, opacity: 0 }} // Start below and fade in
           animate={{ y: 0, opacity: 1 }} // Animate to final position with fade-in
           transition={{ duration: 0.6, ease: "easeOut" }} // Smooth, slow easing
-          className="w-full h-[50%] bg-[#7663FF] rounded-[2vw] overflow-hidden relative group cursor-pointer"
+          className="h-full w-full"
         >
           <motion.div className="absolute bg-black/10 flex flex-col justify-between top-0 left-0 w-full p-[1vw] group-hover:p-[1.5vw] transition-all duration-300">
             <div className="flex justify-between w-full">
@@ -281,6 +283,7 @@ const Hero = () => {
             className="h-full w-full object-cover"
           ></video>
         </motion.div>
+        </a>
       </div>
 
       <Modal show={showModal} onClose={closeModal}>
