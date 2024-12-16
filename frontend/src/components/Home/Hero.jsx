@@ -49,7 +49,7 @@ const Hero = () => {
                 </Link>
                 <Link to="/connect-us">
                   <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[1.4vw] rotate-[35deg]">
-                    About
+                    Connet
                   </h1>
                 </Link>
                 <a href="https://woc.learnersarc.com/">
