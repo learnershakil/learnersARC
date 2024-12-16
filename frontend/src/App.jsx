@@ -11,7 +11,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/connect-us" element={<ConnectUs />} />
         <Route path="/woc-register" element={<WocRegister />} />
-        <Route path="/animatedbg" element={<AnimatedBackground />} />
       </Routes>
     </div>
   )
