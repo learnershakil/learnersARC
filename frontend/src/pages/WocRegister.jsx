@@ -32,7 +32,7 @@ const WocRegister = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/signup`,
+        `https://backend.learnershakil.workers.dev/signup`,
         formData
       );
       if (response.status === 200) {

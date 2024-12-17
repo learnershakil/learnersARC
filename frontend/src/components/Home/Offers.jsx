@@ -6,7 +6,7 @@ const Offers = () => {
     <div className="w-full px-[2vw] flex flex-col gap-[2.5vw] pt-[7vw] pb-[15vw] sm:pb-[2vw]">
       <div className="w-full flex justify-between items-center">
         <div className="flex sm:gap-[1vw] gap-[2vw] items-center">
-        <Link to="/unauthorized">
+        <Link to="/login">
             <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center hover:border-zinc-300">
               Mentors
             </h1>

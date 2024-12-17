@@ -57,7 +57,7 @@ const Hero = () => {
                     WOC
                   </h1>
                 </a>
-                <Link to="/unauthorized">
+                <Link to="/login">
                   <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[6vw] right-[6vw] sm:bottom-[1.8vw] bottom-[2vw] rotate-[69deg]">
                     More
                   </h1>
@@ -72,7 +72,7 @@ const Hero = () => {
           ></motion.div>
 
           <div className="flex sm:gap-[1vw] gap-[2vw]">
-            <Link to="/unauthorized">
+            <Link to="/login">
               <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[4.5vw] text-center hover:border-zinc-300">
                 LogIn
               </h1>
