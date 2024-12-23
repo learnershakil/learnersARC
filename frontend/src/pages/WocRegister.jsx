@@ -32,12 +32,12 @@ const WocRegister = () => {
 
     try {
       const response = await axios.post(
-        `https://backend.learnershakil.workers.dev/signup`,
+        `https://woc.learnersarc.com/api/register`,
         formData
       );
       if (response.status === 200) {
         setFormSubmitted(true);
-        setError(""); // Reset error if successful
+        setError(""); // Reset error if successfulz
       }
     } catch (error) {
       setError("Something went wrong. Please try again later.");
@@ -53,6 +53,25 @@ const WocRegister = () => {
         <h1 className="text-3xl sm:text-4xl font-semibold text-center mb-8 text-indigo-400">
           Winter of Code Registration
         </h1>
+
+        {/* Instructions */}
+        <div className="mb-6 bg-gray-800 bg-opacity-60 backdrop-blur-lg border p-4 rounded-lg">
+          <h3 className="text-xl font-semibold text-indigo-400 mb-4">Video Submission Instructions</h3>
+          <p className="text-base mb-2">
+            Please upload a short video (1.5–3 minutes) to YouTube or any video platform and provide the URL in the field below.
+          </p>
+          <p className="text-base mb-2">
+            In your video, kindly cover the following:
+          </p>
+          <ul className="list-disc pl-6">
+            <li><strong>Introduction:</strong> Briefly introduce yourself, your background, and your skills.</li>
+            <li><strong>Motivation:</strong> Explain why you are excited about Winter of Code and what motivates you to join.</li>
+            <li><strong>Why you're a perfect fit:</strong> Highlight why you believe you’re a great fit for WoC and how you can contribute.</li>
+          </ul>
+          <p className="text-base mt-2">
+            Make sure your video is either publicly accessible or unlisted for us to view.
+          </p>
+        </div>
 
         {/* Registration Form */}
         <div className="bg-violet-800 bg-opacity-20 backdrop-blur-lg border sm:border-2 border-violet-700 p-6 sm:p-8 lg:p-10 rounded-lg shadow-lg">
@@ -72,7 +91,7 @@ const WocRegister = () => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit}>
             <div className="flex sm:flex-row flex-col gap-4 w-full">
               {/* Name */}
               <div className="mb-4 w-full">

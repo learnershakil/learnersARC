@@ -6,6 +6,8 @@ import LocomotiveScroll from "locomotive-scroll";
 import Hero from "../components/Home/Hero";
 import Offers from "../components/Home/Offers";
 import Cards from "../components/Home/Cards";
+import Footer from "../components/footer/Footer";
+import Detail from "../components/Home/Detail";
 
 export default function Home() {
   const locomotiveScroll = new LocomotiveScroll();
@@ -21,22 +23,33 @@ export default function Home() {
     backgroundColor: "#281938", // Solid black background
     opacity: 1, // Fully opaque
     backgroundImage: `
-      repeating-radial-gradient(circle at 0 0, transparent 0%, #000000 40px),
-      repeating-linear-gradient(#000000, #28193855, #000000)
+      repeating-radial-gradient(circle at 0 0, transparent 0%, #1A1A1D 40px),
+      repeating-linear-gradient(#000000, #864AF9, #000000)
     `,
-    backgroundBlendMode: "multiply", 
+    backgroundBlendMode: "multiply",
   };
 
   return (
     <main
-      className={`min-h-screen bg-zinc-900 p-[2vw] font-['Satoshi-Medium'] text-zinc-100 transition-all ${isLoading && 'h-screen overflow-hidden'}`}
-      style={inlineStyle}
+      className={`min-h-screen font-['Satoshi-Medium'] text-zinc-100 transition-all relative ${
+        isLoading && "overflow-hidden h-screen"
+      }`}
     >
+      <div
+        className="fixed top-0 left-0 w-full h-screen bg-zinc-900 z-[-1]"
+        style={inlineStyle}
+      ></div>
       <Hero />
 
-      <Offers/>
+      <Offers />
 
-      <Cards/>
+      <Detail />
+
+      <Cards />
+
+
+
+      <Footer />
     </main>
   );
 }

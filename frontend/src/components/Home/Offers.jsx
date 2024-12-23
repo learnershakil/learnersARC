@@ -1,92 +1,102 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const Offers = () => {
+  useGSAP(() => {
+    if (window.innerWidth > 640) { // sm breakpoint in Tailwind
+      gsap.to(".offers-cards", {
+        x: "-52%",
+        scrollTrigger: {
+          trigger: ".offers",
+          start: "top top", 
+          end: "bottom top",
+          scrub: true,
+          pin: true,
+          ease: "power4.inOut",
+        },
+      });
+
+      gsap.to(".offers-image", {
+        x: "25%",
+        scrollTrigger: {
+          trigger: ".offers",
+          start: "top top",
+          end: "bottom top", 
+          scrub: 1,
+          ease: "power4.inOut",
+        },
+      });
+    }
+  });
+
+  const offerData = [
+    {
+      text: "Expert Mentorship",
+      image:
+        "/assets/images/hackathon-image.jpg",
+    },
+    {
+      text: "Project-Based Learning",
+      image: "https://i.pinimg.com/736x/17/ad/2c/17ad2c06296f4f4b92869278d0405d4f.jpg",
+    },
+    {
+      text: "Interactive Courses",
+      image:
+        "/assets/images/mentorship.jpg",
+    },
+    {
+      text: "Career Guidance",
+      image:
+        "/assets/images/career.jpg",
+    },
+  ];
+
   return (
-    <div className="w-full px-[2vw] flex flex-col gap-[2.5vw] pt-[7vw] pb-[15vw] sm:pb-[2vw]">
-      <div className="w-full flex justify-between items-center">
-        <div className="flex sm:gap-[1vw] gap-[2vw] items-center">
-        <Link to="/login">
-            <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center hover:border-zinc-300">
-              Mentors
-            </h1>
-          </Link>
+    <div className="w-full py-[10vw] offers px-[2vw] sm:bg-gradient-to-b from-[#0C0C0C] via-[#17012f] to-[#05000a]">
+      <div className="w-full flex flex-col sm:gap-[2.5vw] gap-[7vw] sm:px-[2vw] sm:py-[3vw] py-[10vw] bg-[#ffffff13] border border-[#ffffff13] rounded-[2vw]">
+        <div className="w-full flex justify-between items-center px-[2vw]">
+          <div className="flex sm:gap-[1vw] gap-[3vw] items-center">
+            <Link to="/login">
+              <h1 className="text-zinc-300 sm:text-[1vw] text-[3.2vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center hover:border-zinc-500 border-zinc-300">
+                Mentors
+              </h1>
+            </Link>
 
-          <a href="https://woc.learnersarc.com/">
-            <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center hover:border-zinc-300">
-              Courses
-            </h1>
-          </a>
+            <a href="https://woc.learnersarc.com/">
+              <h1 className="text-zinc-300 sm:text-[1vw] text-[3.2vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center hover:border-zinc-500 border-zinc-300">
+                Courses
+              </h1>
+            </a>
 
-          <a href="https://woc.learnersarc.com/">
-            <h1 className="text-zinc-900 hover:text-zinc-950 hover:bg-zinc-300 bg-zinc-100 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center">
-              Explore
-            </h1>
-          </a>
+            <a href="https://woc.learnersarc.com/">
+              <h1 className="bg-zinc-300 hover:bg-zinc-200 text-zinc-900 sm:text-[1vw] text-[3.2vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[5vw] text-center">
+                Explore
+              </h1>
+            </a>
+          </div>
+          <h1 className="sm:text-[2.5vw] text-[5vw] text-zinc-300 font-sans font-medium">What we offer</h1>
         </div>
-        <h1 className="sm:text-[2.5vw] text-[5vw]">What we offer</h1>
-      </div>
 
-      <div className="w-full sm:h-[45vw] flex flex-col sm:gap-[1vw] gap-[5vw] font-serif">
-        <div className="h-full w-full flex sm:flex-row flex-col sm:gap-[1vw] gap-[5vw]">
-          <div className="sm:w-[40%] sm:h-auto h-[60vw] shrink-0 bg-indigo-900 bg-opacity-20 backdrop-blur-sm border-2 border-indigo-900 rounded-[2vw] overflow-hidden  relative">
-            <div className="absolute top-0 left-0 h-full w-full transition-all sm:px-[2vw] px-[5vw] sm:py-[0.7vw] py-[2vw] flex flex-col justify-between">
-              <h1 className="sm:text-[2.7vw] text-[5.5vw] font-medium">
-                Comprehensive & In-Depth Curriculum
-              </h1>
-              <p className="sm:text-[1.2vw] text-[3vw] pb-[1vw]">
-                Our coding bootcamp provides a thorough, step-by-step curriculum
-                designed to cover both fundamental concepts and advanced
-                techniques. We go beyond the basics to ensure students gain a
-                deep understanding of coding and development, preparing them for
-                real-world challenges.
-              </p>
-            </div>
-          </div>
-
-          <div className="w-full sm:h-auto h-[60vw]  bg-purple-900 bg-opacity-20 backdrop-blur-sm border-2 border-purple-900 rounded-[2vw] overflow-hidden relative">
-            <div className="absolute top-0 left-0 h-full w-full transition-all sm:px-[2vw] px-[5vw] sm:py-[0.7vw] py-[2vw] flex flex-col justify-between">
-              <h1 className="sm:text-[2.7vw] text-[5.5vw] font-medium">
-                Beginner-Friendly Approach
-              </h1>
-              <p className="sm:text-[1.2vw] text-[3vw] pb-[1vw]">
-                No prior experience? No problem! Our bootcamp is designed to
-                guide beginners through every step of the learning process. With
-                clear explanations and hands-on exercises, we ensure that
-                anyone, regardless of their background, can master coding skills
-                from the ground up.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="h-full w-full flex sm:flex-row flex-col sm:gap-[1vw] gap-[5vw]">
-          <div className="w-full sm:h-auto h-[60vw] bg-violet-900 bg-opacity-20 backdrop-blur-sm border-2 border-violet-900 rounded-[2vw] overflow-hidden relative">
-            <div className="absolute top-0 left-0 h-full w-full transition-all sm:px-[2vw] px-[5vw] sm:py-[0.7vw] py-[2vw] flex flex-col justify-between">
-              <h1 className="sm:text-[2.7vw] text-[5.5vw] font-medium">
-                Real-World Projects & Problem Solving
-              </h1>
-              <p className="sm:text-[1.2vw] text-[3vw] pb-[1vw]">
-                Our bootcamp is centered around practical learning, where
-                students build real-world projects and solve actual problems.
-                This approach helps solidify concepts, improve problem-solving
-                skills, and create a strong portfolio to showcase to future
-                employers.
-              </p>
-            </div>
-          </div>
-          <div className="w-full sm:h-auto h-[60vw] bg-indigo-800 bg-opacity-20 backdrop-blur-sm border-2 border-indigo-800 rounded-[2vw] overflow-hidden relative">
-            <div className="absolute top-0 left-0 h-full w-full transition-all sm:px-[2vw] px-[5vw] sm:py-[0.7vw] py-[2vw] flex flex-col justify-between">
-              <h1 className="sm:text-[2.7vw] text-[5.5vw] font-medium">
-                Cutting-Edge Technologies & Tools
-              </h1>
-              <p className="sm:text-[1.2vw] text-[3vw] pb-[1vw]">
-                We teach the latest technologies and tools used in the industry.
-                From web development frameworks to data science and AI, we
-                ensure students are equipped with the skills that are in demand
-                right now — not just what’s outdated or commonly taught
-                elsewhere.
-              </p>
-            </div>
+        <div className="w-full flex sm:overflow-hidden overflow-x-scroll">
+          <div className="w-fit sm:h-[30vw] h-[72vw] flex sm:gap-[2vw] gap-[5vw] offers-cards pl-[10%] pb-[2vw]">
+            {offerData.map((_, index) => (
+              <div className="sm:w-[33vw] w-[80vw] h-full bg-zinc-900 rounded-[2vw] relative flex justify-center items-center overflow-hidden border border-indigo-900 shadow-indigo-900 shadow-sm hover:shadow-indigo-800 hover:shadow-md transition-all">
+                <div className="h-full sm:w-[50vw] w-[125vw] absolute top-0 right-0 offers-image">
+                  <img src={offerData[index].image} alt={offerData[index].text} className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute top-0 left-0 w-full h-full hover:bg-black/20 flex flex-col justify-between p-[1vw]">
+                  <h1 className="text-zinc-100 sm:text-[2vw] text-[4vw]">
+                    {offerData[index].text}
+                  </h1>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

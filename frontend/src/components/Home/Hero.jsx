@@ -6,164 +6,90 @@ import LocomotiveScroll from "locomotive-scroll";
 import Login from "../../pages/Login";
 import SignUp from "../../pages/SignUp";
 import Modal from "../Modal";
+import Nav from "./Nav";
+import PhoneNav from "./PhoneNav";
 
 const Hero = () => {
-  const [navMenu, setNavMenu] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [formType, setFormType] = useState(""); // To track which form to show
-
-  const openModal = (type) => {
-    setFormType(type); // Set form type to either "login" or "signup"
-    setShowModal(true);
-  };
-
-  const closeModal = () => setShowModal(false);
-
-  const toggleNavMenu = () => {
-    setNavMenu(!navMenu);
-  };
-
   return (
-    <div className="flex justify-between w-full pb-[5vw] gap-[2vw]">
+    <div className="flex justify-between sm:flex-row flex-col-reverse w-full pb-[5vw] gap-[2vw] p-[2vw] relative">
       <div className="w-full flex flex-col gap-[29.5vw]">
-        <nav className="flex w-full justify-between items-center h-fit">
-          <div className={`flex gap-[1vw] items-start h-fit relative z-40`}>
-            <button
-              className={`hover:text-zinc-300 h-fit ${
-                navMenu ? "text-zinc-900" : ""
-              }`}
-              onClick={toggleNavMenu}
+        <Nav />
+
+        <div className="w-full flex justify-between items-center">
+          <div>
+            {/* Main Text Section with Fade-In Animation */}
+            <motion.div
+              initial={{ opacity: 0 }} // Start from invisible
+              animate={{ opacity: 1 }} // Fade in to full opacity
+              transition={{ duration: 1, staggerChildren: 0.2, delay: 0.5 }} // Stagger animation for child elements
+              className="sm:text-[4vw] text-[10vw] sm:leading-[5vw] leading-[10vw]"
             >
-              {navMenu ? (
-                <XMarkIcon className="sm:w-[2vw] w-[5vw] text-zinc-900" />
-              ) : (
-                <Bars3Icon className="sm:w-[2vw] w-[5vw] text-zinc-100" />
-              )}
-            </button>
-            {navMenu && (
-              <div className="flex flex-col gap-[0.5vw] absolute left-[5vw]">
-                <Link to="/">
-                  <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:left-0 left-[1.5vw] rotate-[18deg]">
-                    Home
-                  </h1>
-                </Link>
-                <Link to="/connect-us">
-                  <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[1.4vw] rotate-[35deg]">
-                    Connect
-                  </h1>
-                </Link>
-                <a href="https://woc.learnersarc.com/">
-                  <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[3.5vw] right-[2.1vw] bottom-[0.5vw] rotate-[52deg]">
-                    WOC
-                  </h1>
-                </a>
-                <Link to="/login">
-                  <h1 className="text-zinc-900 hover:text-zinc-600 sm:text-[1.5vw] text-[2.25vw] hover:scale-105 relative sm:right-[6vw] right-[6vw] sm:bottom-[1.8vw] bottom-[2vw] rotate-[69deg]">
-                    More
-                  </h1>
-                </Link>
-              </div>
-            )}
+              <motion.h1
+                data-scroll
+                data-scroll-speed="0.14"
+                initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
+                animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
+                transition={{ duration: 1, delay: 0.5 }} // Duration for the fade-in and movement
+              >
+                Revolutionizing
+              </motion.h1>
+
+              <motion.h1
+                data-scroll
+                data-scroll-speed="0.12"
+                initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
+                animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
+                transition={{ duration: 1, delay: 0.7 }} // Delay to create a staggered effect
+              >
+                Education <span className="italic">with</span>
+              </motion.h1>
+
+              <motion.h1
+                data-scroll
+                data-scroll-speed="0.11"
+                initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
+                animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
+                transition={{ duration: 1, delay: 0.9 }} // Delay to create a staggered effect
+              >
+                Innovation
+              </motion.h1>
+            </motion.div>
+
+            {/* Paragraph with Slide-Up Animation */}
+            <motion.p
+              data-scroll
+              data-scroll-speed="0.09"
+              initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
+              animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
+              transition={{ duration: 1, delay: 1.1 }} // Slight delay to sync with previous animations
+              className="sm:text-[1.1vw] text-[3vw]"
+            >
+              Bringing Tomorrow&apos;s Learning to Today&apos;s Classrooms
+            </motion.p>
           </div>
 
-          <motion.div
-            animate={{ scale: navMenu ? 1 : 0 }}
-            className="absolute top-[-7vw] left-[-7vw] bg-zinc-100 sm:w-[20vw] w-[25vw] sm:h-[20vw] h-[25vw] rounded-full"
-          ></motion.div>
-
-          <div className="flex sm:gap-[1vw] gap-[2vw]">
-            <Link to="/login">
-              <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[4.5vw] text-center hover:border-zinc-300">
-                LogIn
-              </h1>
-            </Link>
-
-            {/* <Link onClick={() => openModal("login")}>
-              <h1 className="text-zinc-100 hover:text-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] rounded-full border sm:w-[4.5vw] text-center hover:border-zinc-300">
-                LogIn
-              </h1>
-            </Link> */}
-
-            {/* 
-            <Link onClick={() => openModal("signup")}>
-              <h1 className="text-zinc-900 hover:text-zinc-950 hover:bg-zinc-300 sm:text-[1vw] text-[3vw] sm:px-[0.5vw] px-2 sm:py-[0.2vw] py-[0.5vw] bg-zinc-100 rounded-full border sm:w-[4.5vw] text-center">
-                SignIn
-              </h1>
-            </Link> */}
-          </div>
-        </nav>
-
-        <div>
-          {/* Main Text Section with Fade-In Animation */}
-          <motion.div
-            initial={{ opacity: 0 }} // Start from invisible
-            animate={{ opacity: 1 }} // Fade in to full opacity
-            transition={{ duration: 1, staggerChildren: 0.2, delay: 0.5 }} // Stagger animation for child elements
-            className="sm:text-[4vw] text-[5.5vw] leading-[5vw]"
-          >
-            <motion.h1
-              data-scroll
-              data-scroll-speed="0.14"
-              initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
-              animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
-              transition={{ duration: 1, delay: 0.5 }} // Duration for the fade-in and movement
-            >
-              Revolutionizing
-            </motion.h1>
-
-            <motion.h1
-              data-scroll
-              data-scroll-speed="0.12"
-              initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
-              animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
-              transition={{ duration: 1, delay: 0.7 }} // Delay to create a staggered effect
-            >
-              Education <span className="italic">with</span>
-            </motion.h1>
-
-            <motion.h1
-              data-scroll
-              data-scroll-speed="0.11"
-              initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
-              animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
-              transition={{ duration: 1, delay: 0.9 }} // Delay to create a staggered effect
-            >
-              Innovation
-            </motion.h1>
-          </motion.div>
-
-          {/* Paragraph with Slide-Up Animation */}
-          <motion.p
-            data-scroll
-            data-scroll-speed="0.09"
-            initial={{ opacity: 0, y: 20 }} // Start slightly below and invisible
-            animate={{ opacity: 1, y: 0 }} // Fade in and move to original position
-            transition={{ duration: 1, delay: 1.1 }} // Slight delay to sync with previous animations
-            className="sm:text-[1.1vw] text-[1.5vw]"
-          >
-            Bringing Tomorrow&apos;s Learning to Today&apos;s Classrooms
-          </motion.p>
+          <PhoneNav />
         </div>
       </div>
 
-      <div className="w-[45vw] h-[50vw] flex flex-col gap-[1vw] shrink-0">
+      <div className="sm:w-[45vw] w-full sm:h-[50vw] h-[100vw] flex flex-col sm:gap-[1vw] gap-[2vw] shrink-0">
         {/* First Card (Animated) */}
         <motion.div
           initial={{ y: 20, opacity: 0 }} // Start below and fade in
           animate={{ y: 0, opacity: 1 }} // Animate to final position with fade-in
           transition={{ duration: 0.6, ease: "easeOut" }} // Smooth and slow easing
-          className="flex gap-[1vw] h-[45%] items-stretch justify-stretch content-stretch"
+          className="flex sm:gap-[1vw] gap-[2vw] h-[45%] items-stretch justify-stretch content-stretch"
         >
           {/* First Box */}
           <motion.div
             data-scroll
-            data-scroll-speed="0.2"
+            data-scroll-speed="0.4"
             className="sm:min-w-[35%] min-w-[50%] h-full bg-[#7663FF] rounded-[2vw] overflow-hidden relative"
           >
             <Link to="/connect-us" className="h-full w-full">
               <motion.div className="absolute flex flex-col justify-between top-0 left-0 h-full w-full p-[1vw] hover:p-[1.5vw] transition-all duration-300">
                 <div className="flex justify-between w-full">
-                  <span className="sm:text-lg text-xs">Connect Us</span>
+                  <span className="sm:text-lg text-md">Connect Us</span>
                   <motion.svg
                     className="sm:size-6 size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +121,7 @@ const Hero = () => {
           <a href="https://woc.learnersarc.com/">
             <motion.div
               data-scroll
-              data-scroll-speed="0.1"
+              data-scroll-speed="0.3.5"
               initial={{ x: 50, opacity: 0 }} // Start offscreen from the right and hidden
               animate={{
                 x: 0, // Slide to its final position (center)
@@ -219,7 +145,7 @@ const Hero = () => {
 
               <motion.div className="absolute flex flex-col justify-between top-0 left-0 h-full w-full p-[1vw] hover:p-[1.5vw] transition-all duration-300">
                 <div className="flex justify-between w-full">
-                  <span className="sm:text-lg text-xs">Join Now</span>
+                  <span className="sm:text-lg text-md">Join Now</span>
                   <motion.svg
                     className="sm:size-6 size-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -245,7 +171,7 @@ const Hero = () => {
         {/* Third Card (Animated) */}
         <motion.div
           data-scroll
-          data-scroll-speed="0.08"
+          data-scroll-speed="0.3.5"
           initial={{ y: 20, opacity: 0 }} // Start below and fade in
           animate={{ y: 0, opacity: 1 }} // Animate to final position with fade-in
           transition={{ duration: 0.6, ease: "easeOut" }} // Smooth, slow easing
@@ -257,7 +183,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="sm:text-lg text-xs"
+                className="sm:text-lg text-md"
               >
                 Explore Virtual Classroom
               </motion.h1>
@@ -280,23 +206,21 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          <video
-            src="https://videos.pexels.com/video-files/9783697/9783697-uhd_2732_1440_25fps.mp4"
-            muted
-            loop
-            autoPlay
-            className="h-full w-full object-cover"
-          ></video>
+          <img
+            c
+            src="https://images.pexels.com/photos/627530/pexels-photo-627530.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+          />
         </motion.div>
       </div>
 
-      <Modal show={showModal} onClose={closeModal}>
+      {/* <Modal show={showModal} onClose={closeModal}>
         {formType === "signup" ? (
           <SignUp closeModal={closeModal} />
         ) : (
           <Login closeModal={closeModal} />
         )}
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

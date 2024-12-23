@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; // Using react-router for navigation
 const Cards = () => {
   return (
-    <div>
+    <div className="w-full  px-[2vw]">
       <div className="flex xl:justify-between justify-center md:items-center xl:flex-row flex-col xl:w-full w-fit md:py-[121px] xl:gap-0 gap-[40px] md:gap-[80px]">
         <div className="relative left-10 self-start xl:right-auto">
           <motion.div
@@ -12,7 +12,11 @@ const Cards = () => {
             transition={{ duration: 0.8 }}
             className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] top-0 bg-slate-100 overflow-hidden"
           >
-            <img className="w-full h-full object-cover" src="https://i.pinimg.com/736x/61/ad/7d/61ad7da338c359a3a9a5d593ebf5780d.jpg" alt="" />
+            <img
+              className="w-full h-full object-cover"
+              src="https://i.pinimg.com/736x/61/ad/7d/61ad7da338c359a3a9a5d593ebf5780d.jpg"
+              alt=""
+            />
           </motion.div>
           <motion.div
             initial={{ rotate: 0, x: -50 }}
@@ -20,7 +24,11 @@ const Cards = () => {
             transition={{ duration: 0.8 }}
             className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] absolute top-0 md:left-[108px] left-[40px] bg-slate-200 overflow-hidden"
           >
-             <img className="w-full h-full object-cover" src="/assets/images/student.jpg" alt="" />
+            <img
+              className="w-full h-full object-cover"
+              src="/assets/images/student.jpg"
+              alt=""
+            />
           </motion.div>
           <motion.div
             initial={{ rotate: 0, x: -100 }}
@@ -28,7 +36,11 @@ const Cards = () => {
             transition={{ duration: 0.8 }}
             className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] absolute top-0 md:left-[205px] left-[80px] bg-slate-400"
           >
-            <img className="w-full h-full object-cover" src="https://i.pinimg.com/736x/56/67/93/5667936906181a6fbe0501b471e2b5bd.jpg" alt="" />
+            <img
+              className="w-full h-full object-cover"
+              src="https://i.pinimg.com/736x/56/67/93/5667936906181a6fbe0501b471e2b5bd.jpg"
+              alt=""
+            />
           </motion.div>
           <motion.div
             initial={{ rotate: 0, x: -150 }}
@@ -36,7 +48,11 @@ const Cards = () => {
             transition={{ duration: 0.8 }}
             className="md:w-[24vw] w-[140px] md:h-[30vw] h-[180px] rounded-[15px] absolute top-0 md:left-[273px] left-[108px] bg-slate-300 overflow-hidden"
           >
-            <img className="w-full h-full object-cover" src="/assets/images/teach.jpg" alt="" />
+            <img
+              className="w-full h-full object-cover"
+              src="/assets/images/teach.jpg"
+              alt=""
+            />
           </motion.div>
         </div>
 
